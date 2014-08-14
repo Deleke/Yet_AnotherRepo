@@ -3,4 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @quiz %> |
-<%= link_to 'Back', quizzes_path %>
+<%= link_to 'Back', quizzes_path %> |
+<%= link_to 'View Questions', {:controller => 'questions', :action => 'index', :id => @quiz.id} %>
