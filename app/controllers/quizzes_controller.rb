@@ -7,10 +7,17 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.all
   end
 
+  def take
+    @quizzes = Quiz.all
+  end
+
+  def listtest
+      @quiz = Quiz.find(params[:id])
+    end
   # GET /quizzes/1
   # GET /quizzes/1.json
   def show
-    #@quiz = Quiz.find(params[:id])
+    @quiz = Quiz.find(params[:id])
     #Quiz.questions.all
   end
 
@@ -21,6 +28,7 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes/1/edit
   def edit
+
   end
 
   # POST /quizzes
@@ -71,6 +79,6 @@ class QuizzesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quiz_params
-      params.require(:quiz).permit(:name, :description, :text)
+      params.require(:quiz).permit(:name, :description)
     end
 end
