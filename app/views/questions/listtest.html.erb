@@ -16,9 +16,8 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-       
         <td><%= question.quest %></td>
-        <p><td><%= question.a %></td></p>
+        <td><%= question.a %></td>
         <td><%= question.b %></td>
         <td><%= question.c %></td>
         <td><%= question.d %></td>
@@ -31,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Question', new_quiz_question_path %>
+

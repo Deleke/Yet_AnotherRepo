@@ -1,0 +1,21 @@
+<%= form_for(@add_quizid_to_quesiton) do |f| %>
+  <% if @add_quizid_to_quesiton.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@add_quizid_to_quesiton.errors.count, "error") %> prohibited this add_quizid_to_quesiton from being saved:</h2>
+
+      <ul>
+      <% @add_quizid_to_quesiton.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :quizid %><br>
+    <%= f.number_field :quizid %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

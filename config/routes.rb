@@ -1,7 +1,13 @@
-Rails.application.routes.draw do
-  resources :questions
+Quizziminator::Application.routes.draw do
+  get 'questions/listtest' => 'questions#listtest'
+  get 'quizzes/take' => 'quizzes#take'
 
-  resources :quizzes
+  resources :add_quizid_to_quesitons
+
+  resources :quizzes do
+    resources :questions
+  end
+  
   root "demo#index"
 
   get 'demo/index'
