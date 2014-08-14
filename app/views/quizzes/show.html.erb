@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @quiz.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @quiz.description %>
+</p>
+
+<br />
+<p>Way to go, now let's add some questions to your quiz. Click <%= link_to 'Add Questions', {:controller => 'questions', :action => 'new', :id => @quiz.id} %><p>
+
+
+<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+<%= link_to 'Back', quizzes_path %>
+<%= link_to 'Start', {:controller => 'questions', :action => 'index', :id => @quiz.id} %> 
