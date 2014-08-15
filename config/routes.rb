@@ -1,4 +1,5 @@
 Quizziminator::Application.routes.draw do
+  devise_for :users
   get 'quizzes/take' => 'quizzes#take'
 
   resources :add_quizid_to_quesitons
