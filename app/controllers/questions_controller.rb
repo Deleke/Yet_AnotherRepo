@@ -1,10 +1,15 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:create, :index, :new, :show, :edit, :update, :destroy]
+  #before_filter :load_quiz
+
+  #def load_quiz
+   # @questions = Quiz.find params [:quiz]
+  #end
 
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = @quiz.questions
   end
 
   # GET /questions/1
@@ -24,16 +29,11 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
-
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    @question = @quiz.questions.create(question_params)
+    if @question.save
+      redirect_to quiz_questions_path(@quiz), notice: 'Question was successfully created.' 
+    else
+      render 'new'
     end
   end
 
@@ -64,7 +64,8 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.find(params[:id])
+      @quiz = Quiz.find(params[:quiz_id])
+      # render json: @question
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

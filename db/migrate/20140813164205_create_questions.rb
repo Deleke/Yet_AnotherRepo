@@ -8,6 +8,8 @@ class CreateQuestions < ActiveRecord::Migration
       t.text :d
       t.text :answer
 
+      t.references :quiz, index: true
+
       t.timestamps
     end
   end

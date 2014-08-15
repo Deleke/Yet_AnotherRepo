@@ -1,5 +1,5 @@
 <h1>QUIZZIMINATOR</h1>
 <h4>because quizify sounds too mainstream</h4>
 
-<%= link_to "Take a Quiz", quizzes_path %>
+<%= link_to "Take a Quiz", {:controller => :quizzes, :action => :take} %>
 <%= link_to "Create/Manage Quiz", quizzes_path %>
